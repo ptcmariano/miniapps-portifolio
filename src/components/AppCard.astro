@@ -1,0 +1,119 @@
+---
+interface Props {
+	title: string;
+	description: string;
+	accent: string;
+	tags: string[];
+	slug: string;
+}
+
+const { title, description, accent, tags, slug } = Astro.props;
+---
+
+<div class="card" style={`--accent: ${accent}`}>
+	<div class="content">
+		<div class="header">
+			<div class="accent-dot"></div>
+			<h3>{title}</h3>
+		</div>
+		<p>{description}</p>
+		<div class="tags">
+			{tags.map((tag) => <span class="tag">{tag}</span>)}
+		</div>
+		<button class="btn-details" data-slug={slug}>Ver Detalhes</button>
+	</div>
+</div>
+
+<style>
+	.card {
+		background: var(--gray-800);
+		border: 1px solid var(--gray-700);
+		border-radius: 1rem;
+		padding: 1.5rem;
+		transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+		position: relative;
+		overflow: hidden;
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		cursor: pointer;
+	}
+
+	.card:hover {
+		transform: translateY(-5px) scale(1.02);
+		border-color: var(--accent);
+		box-shadow: 0 10px 30px -10px var(--accent);
+	}
+
+	.card::before {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		background: radial-gradient(circle at top right, var(--accent), transparent 40%);
+		opacity: 0.1;
+		pointer-events: none;
+	}
+
+	.header {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+	}
+
+	.accent-dot {
+		width: 12px;
+		height: 12px;
+		background-color: var(--accent);
+		border-radius: 50%;
+		box-shadow: 0 0 10px var(--accent);
+	}
+
+	h3 {
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	p {
+		color: var(--gray-200);
+		font-size: var(--text-base);
+		margin: 0;
+	}
+
+	.tags {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		margin-top: auto;
+	}
+
+	.tag {
+		background: var(--gray-700);
+		color: var(--gray-100);
+		font-size: var(--text-sm);
+		padding: 0.25rem 0.75rem;
+		border-radius: 2rem;
+		border: 1px solid var(--gray-600);
+	}
+
+	.btn-details {
+		background: transparent;
+		color: var(--gray-0);
+		border: 1px solid var(--gray-600);
+		padding: 0.5rem 1rem;
+		border-radius: 0.5rem;
+		cursor: pointer;
+		font-weight: 500;
+		transition: all 0.2s ease;
+		width: 100%;
+		margin-top: 1rem;
+	}
+
+	.card:hover .btn-details {
+		background: var(--accent);
+		border-color: var(--accent);
+		color: #fff;
+	}
+</style>

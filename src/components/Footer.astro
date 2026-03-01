@@ -1,75 +1,138 @@
 ---
 import Icon from './Icon.astro';
-
 const currentYear = new Date().getFullYear();
 ---
 
-<footer>
-	<div class="group">
-		<p>
-			Designed & Developed in Portland with <a href="https://astro.build/">Astro</a>
-			<Icon icon="rocket-launch" size="1.2em" />
-		</p>
-		<p>&copy; {currentYear} Jeanine White</p>
+<footer class="wrapper">
+	<div class="footer-content">
+		<div class="brand">
+			<div class="logo">Papps</div>
+			<p>Paulinho apps que resolvem problemas reais.</p>
+		</div>
+		
+		<div class="links-groups">
+			<div class="link-group">
+				<h3>Navegação</h3>
+				<a href="/#">Home</a>
+				<a href="/#apps">Aplicativos</a>
+				<a href="/#sobre">Sobre</a>
+			</div>
+			<div class="link-group">
+				<h3>Suporte</h3>
+				<a href="https://wa.me/5515981415825">WhatsApp</a>
+				<a href="/privacidade.html">Privacidade</a>
+			</div>
+			<div class="link-group">
+				<h3>Social</h3>
+				<a href="https://github.com/ptcmariano">GitHub</a>
+			</div>
+		</div>
 	</div>
-	<p class="socials">
-		<a href="https://twitter.com/me"> Twitter</a>
-		<a href="https://github.com/me"> GitHub</a>
-		<a href="https://codepen.io/me"> CodePen</a>
-	</p>
+	
+	<div class="footer-bottom">
+		<p>&copy; {currentYear} Paulinho.apps • Feito em Salto de Pirapora, SP.</p>
+		<p class="transparency">
+			Usamos Analytics anônimo para melhorar sua experiência. Nenhum dado sensível é coletado.
+		</p>
+	</div>
 </footer>
+
 <style>
 	footer {
+		padding: 6rem 1.5rem 3rem;
+		border-top: 1px solid var(--gray-800);
 		display: flex;
 		flex-direction: column;
+		gap: 4rem;
+	}
+
+	.footer-content {
+		display: grid;
+		grid-template-columns: 1fr;
 		gap: 3rem;
-		margin-top: auto;
-		padding: 3rem 2rem 3rem;
-		text-align: center;
+	}
+
+	@media (min-width: 768px) {
+		.footer-content {
+			grid-template-columns: 1fr 2fr;
+		}
+	}
+
+	.brand {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+	}
+
+	.logo {
+		background: var(--gradient-accent);
+		color: white;
+		width: 40px;
+		height: 40px;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 10px;
+		font-weight: 900;
+	}
+
+	.brand p {
+		color: var(--gray-200);
+		font-size: var(--text-md);
+		max-width: 25ch;
+	}
+
+	.links-groups {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+		gap: 2rem;
+	}
+
+	.link-group {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+	}
+
+	.link-group h3 {
+		color: var(--gray-0);
+		font-size: var(--text-sm);
+		text-transform: uppercase;
+		letter-spacing: 0.05em;
+		margin-bottom: 0.5rem;
+	}
+
+	.link-group a {
 		color: var(--gray-400);
+		text-decoration: none;
+		font-size: var(--text-base);
+		transition: color 0.2s;
+	}
+
+	.link-group a:hover {
+		color: var(--gray-0);
+	}
+
+	.footer-bottom {
+		padding-top: 2rem;
+		border-top: 1px solid var(--gray-800);
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		text-align: center;
+		color: var(--gray-500);
 		font-size: var(--text-sm);
 	}
 
-	footer a {
-		color: var(--gray-400);
-		text-decoration: 1px solid underline transparent;
-		text-underline-offset: 0.25em;
-		transition: text-decoration-color var(--theme-transition);
-	}
-
-	footer a:hover,
-	footer a:focus {
-		text-decoration-color: currentColor;
-	}
-
-	.group {
-		display: flex;
-		flex-direction: column;
-		gap: 0.5rem;
-	}
-
-	.socials {
-		display: flex;
-		justify-content: center;
-		gap: 1rem;
-		flex-wrap: wrap;
-	}
-
-	@media (min-width: 50em) {
-		footer {
+	@media (min-width: 768px) {
+		.footer-bottom {
 			flex-direction: row;
 			justify-content: space-between;
-			padding: 2.5rem 5rem;
+			text-align: left;
 		}
+	}
 
-		.group {
-			flex-direction: row;
-			gap: 1rem;
-			flex-wrap: wrap;
-		}
-
-		.socials {
-			justify-content: flex-end;
-		}
+	.transparency {
+		max-width: 40ch;
 	}
 </style>

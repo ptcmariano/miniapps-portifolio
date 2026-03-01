@@ -1,0 +1,101 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Privacidade | MiniApps.br" description="Termos de privacidade simplificados do MiniApps.br">
+	<main class="wrapper privacy-page">
+		<h1>Privacidade</h1>
+		<p class="last-updated">Última atualização: Fevereiro de 2026</p>
+		
+		<section>
+			<h2>O que coletamos?</h2>
+			<p>
+				<strong>Absolutamente nada de pessoal.</strong> Não solicitamos e-mail, nome, telefone ou qualquer informação que possa identificar você. 
+				Nossos mini-aplicativos funcionam de forma totalmente anônima.
+			</p>
+		</section>
+
+		<section>
+			<h2>Onde estão meus dados?</h2>
+			<p>
+				Seus dados (como treinos, horários favoritados ou históricos de partidas) são salvos exclusivamente no seu dispositivo, usando uma tecnologia chamada <code>localStorage</code>. 
+				Nós não temos acesso a esses dados e eles nunca saem do seu celular ou computador. Se você limpar os dados do seu navegador, esses dados serão excluídos.
+			</p>
+		</section>
+
+		<section>
+			<h2>Analytics</h2>
+			<p>
+				Utilizamos ferramentas de análise (como Google Analytics ou similar) para entender como o site é usado (quais apps são mais clicados, tempo de permanência, etc.). 
+				Esses dados são <strong>agregados e anônimos</strong>, servindo apenas para melhorar a ferramenta.
+			</p>
+		</section>
+
+		<section>
+			<h2>Links Externos</h2>
+			<p>
+				Alguns de nossos aplicativos podem conter links para o GitHub ou WhatsApp. Ao clicar neles, você estará sujeito às políticas de privacidade dessas plataformas.
+			</p>
+		</section>
+
+		<section>
+			<h2>Dúvidas?</h2>
+			<p>
+				Se você tiver qualquer dúvida sobre como tratamos a privacidade, pode entrar em contato via WhatsApp.
+			</p>
+			<a href="https://wa.me/5515" class="btn-whatsapp">Me chama no WhatsApp</a>
+		</section>
+	</main>
+</BaseLayout>
+
+<style>
+	.privacy-page {
+		padding-top: 8rem;
+		padding-bottom: 8rem;
+		max-width: 800px;
+		display: flex;
+		flex-direction: column;
+		gap: 3rem;
+	}
+
+	h1 {
+		font-size: var(--text-4xl);
+		color: var(--gray-0);
+	}
+
+	.last-updated {
+		color: var(--gray-400);
+		font-style: italic;
+	}
+
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+	}
+
+	h2 {
+		font-size: var(--text-2xl);
+		color: var(--gray-0);
+	}
+
+	p {
+		color: var(--gray-200);
+		line-height: 1.6;
+		font-size: var(--text-lg);
+	}
+
+	code {
+		background: var(--gray-800);
+		padding: 0.2rem 0.4rem;
+		border-radius: 4px;
+		color: var(--accent-blue);
+	}
+
+	.btn-whatsapp {
+		margin-top: 1rem;
+		color: #22c55e;
+		font-weight: 600;
+		text-underline-offset: 4px;
+	}
+</style>
